@@ -1,5 +1,7 @@
 from network.properties.OpenAIproperties import OpenAIData
 from interfaces.Models import ModelsInterface
+
+
 class OpenAIModels(ModelsInterface):
     @staticmethod
     def OpenAIStickerModel_dall_e_3(sticker_prompt: str) -> OpenAIData:
@@ -13,11 +15,10 @@ class OpenAIModels(ModelsInterface):
             quality="standard",
             n=1,
         )
+
     @staticmethod
     def OpenAIStickerKwaiiModel_dall_e_2(sticker_prompt: str) -> OpenAIData:
-        prompt = (
-            f"""A cute design of {sticker_prompt} kwaii sticker"""
-        )
+        prompt = f"""A cute design of {sticker_prompt} kwaii sticker"""
         return OpenAIData(
             model="dall-e-2",
             prompt=prompt,
@@ -25,11 +26,12 @@ class OpenAIModels(ModelsInterface):
             quality="standard",
             n=1,
         )
+
     @staticmethod
-    def OpenAIStickerRealisticModel_dall_e_3(sticker_prompt: str) -> OpenAIData:
-        prompt = (
-            f"""A cute design of {sticker_prompt} realistic sticker"""
-        )
+    def OpenAIStickerRealisticModel_dall_e_3(
+        sticker_prompt: str,
+    ) -> OpenAIData:
+        prompt = f"""A cute design of {sticker_prompt} realistic sticker"""
         return OpenAIData(
             model="dall-e-3",
             prompt=prompt,
@@ -39,10 +41,10 @@ class OpenAIModels(ModelsInterface):
         )
 
     @staticmethod
-    def OpenAIStickerRealisticModel_dall_e_2(sticker_prompt: str) -> OpenAIData:
-        prompt = (
-            f"""A cute design of {sticker_prompt} realistic sticker"""
-        )
+    def OpenAIStickerRealisticModel_dall_e_2(
+        sticker_prompt: str,
+    ) -> OpenAIData:
+        prompt = f"""A cute design of {sticker_prompt} realistic sticker"""
         return OpenAIData(
             model="dall-e-2",
             prompt=prompt,

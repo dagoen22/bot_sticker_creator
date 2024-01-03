@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-class ConnectorInterface(ABC):
 
+class ConnectorInterface(ABC):
     @abstractmethod
     def __connect__(self):
         pass
