@@ -2,14 +2,15 @@ import logging
 
 from rembg import remove
 
-class ImageEditor():
+
+class ImageEditor:
     def __init__(self, image_path):
         self.image = image_path
-    
+
     def remove_background(self):
         def __load_image():
             logging.info("Loading image to remove background...")
-            with open(self.image, 'rb') as i:
+            with open(self.image, "rb") as i:
                 return i.read()
 
         def __remove_background(input):
@@ -18,7 +19,7 @@ class ImageEditor():
 
         def __save_image(output):
             logging.info("Saving image without background")
-            with open(self.image, 'wb') as o:
+            with open(self.image, "wb") as o:
                 o.write(output)
                 logging.info(f"Image saved to: {self.image}")
 

@@ -7,6 +7,7 @@ from interfaces.Connector import ConnectorInterface
 from exceptions.ConnectorException import ConnectorException
 from network.properties.OpenAIproperties import OpenAIData
 
+
 class OpenAIConector(ConnectorInterface):
     def __init__(self):
         self.conn = self.__connect__()
@@ -23,10 +24,8 @@ class OpenAIConector(ConnectorInterface):
         return __open_ai_connector()
 
     def send_prompt(self, data_model: OpenAIData):
-        self.response = self.conn.images.generate(
-            **data_model.__dict__
-        )
-            
+        self.response = self.conn.images.generate(**data_model.__dict__)
+
     @property
     def get_response(self):
         return self.response.data[0].url
