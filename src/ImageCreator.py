@@ -12,10 +12,11 @@ from assets.image_editor import ImageEditor
 
 class ImageCreator:
     def __init__(
-        self, data_model: ModelsInterface, connector: ConnectorInterface
+        self, data_model: ModelsInterface, connector: ConnectorInterface, remove_bg = True
     ) -> str:
         self.data_model = data_model
         self.connector = connector
+        self.remove_bg = remove_bg
         self.__send_prompt()
         logging.info(f"using connector: {self.connector}")
         logging.info(f"using data model: {self.data_model}")
@@ -37,7 +38,7 @@ class ImageCreator:
         editor = ImageEditor(self.image_path)
         editor.remove_background()
 
-    def get_image(self):
+    def get_image(self) -> str:
         self.image_name = uuid4().__str__()
 
         path = os.getenv("IMG_PATH")
@@ -63,5 +64,7 @@ class ImageCreator:
 
         __request_image()
         __downlaod_image()
-        self.__remove_bg()
+        if self.remove_bg:
+            self.__remove_bg()
         logging.info(f"image saved to: {self.image_path}")
+        return self.image_path

@@ -11,9 +11,8 @@ from src.models.OpenAIModel import OpenAIModels
 load_dotenv()
 
 
-def main():
-    prompt = "a fat guy with a beard fighting kung-fu"
-
+def main() -> str:
+    prompt = "a black rose"
     logging.basicConfig(
         level=logging.DEBUG
         if os.getenv("ENVIRONMENT") == "dev"
@@ -29,10 +28,10 @@ def main():
 
     data_model = {
         "dev": OpenAIModels.OpenAIStickerKwaiiModel_dall_e_2(
-            sticker_prompt=prompt
+            prompt=prompt
         ),
-        "prod": OpenAIModels.OpenAIStickerModel_dall_e_3(
-            sticker_prompt=prompt
+        "prod": OpenAIModels.OpenAIStickerGraffitiModel_dall_e_3(
+            prompt=prompt
         ),
     }
 
